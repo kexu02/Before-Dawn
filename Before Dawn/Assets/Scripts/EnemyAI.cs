@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour
 {
     [SerializeField] Transform target;
-    [SerializeField] float chaseRange = 7f;
+    [SerializeField] float chaseRange = 10f;
     NavMeshAgent navMeshAgent;
     float distanceToTarget = Mathf.Infinity;
     bool isProvoked = false;
@@ -33,7 +33,7 @@ public class EnemyAI : MonoBehaviour
     }
 
     private void EngageTarget(){
-        if(distanceToTarget >= navMeshAgent.stoppingDistance){
+        if(distanceToTarget > navMeshAgent.stoppingDistance){
             ChaseTarget();
         }
 
